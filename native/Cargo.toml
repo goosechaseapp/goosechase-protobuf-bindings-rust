@@ -9,7 +9,8 @@ edition = "2021"
 serde_serialize = []
 
 [dependencies]
-prost = "0.11"
+prost = "0.7"
+prost-derive = "0.7"
 prost-types = "0.11"
 prost-wkt = "0.4"
 prost-wkt-types = "0.4"
