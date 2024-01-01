@@ -1,0 +1,13 @@
+[package]
+name = "goosechase-protobuf-bindings-rust"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+native = { path = "./native", package = "native", version = "0.1.0" }
+
+[dependencies]
+prost-types = "0.12.1"
+
