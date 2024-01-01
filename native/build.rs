@@ -1,12 +1,8 @@
 use std::path::Path;
-use std::{env, path::PathBuf};
 
 fn main() {
     let mut config = prost_build::Config::new();
     config.btree_map(&["."]);
-    let out = PathBuf::from(env::var("OUT_DIR").expect("out dir not found"));
-    let descriptor_file = out.join("descriptors.bin");
-
     let path = Path::new("../proto");
 
     if !path.exists() {
@@ -28,10 +24,6 @@ fn main() {
     }
 
     tonic_build::configure()
-        .type_attribute(
-            "goosechase.data.email.EmailDocumen",
-            r#"#[derive(Serialize, Deserialize,::prost::Message)]"#,
-        )
         .extern_path(".google.protobuf.Any", "::prost_wkt_types::Any")
         .extern_path(".google.protobuf.Timestamp", "::prost_wkt_types::Timestamp")
         .extern_path(".google.protobuf.Duration", "::prost_wkt_types::Duration")
