@@ -7,5 +7,11 @@ pub mod data {
         tonic::include_proto!("goosechase.data.email");
     }
 
+    pub mod prospect_flow {
+        use serde::{Deserialize, Serialize};
+        tonic::include_proto!("goosechase.data.prospect");
+    }
+
     pub use email::*;
+    pub use prospect_flow::*;
 }
